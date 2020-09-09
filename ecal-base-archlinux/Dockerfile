@@ -13,5 +13,7 @@ RUN sed -i '/ %wheel ALL=(ALL) NOPASSWD: ALL/s/^# //g' /etc/sudoers
 USER 1306
 RUN mkdir -p /home/ecal/Werkbank/c_c++/
 WORKDIR /home/ecal/Werkbank/c_c++/
-RUN git clone https://github.org/continental/ecal.git
+RUN git clone https://github.com/continental/ecal.git
 WORKDIR /home/ecal/Werkbank/c_c++/ecal/
+RUN git submodule init
+RUN git submodule update
