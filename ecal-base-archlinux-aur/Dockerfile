@@ -1,8 +1,7 @@
-FROM archlinux
+FROM archlinux:base-devel
 MAINTAINER tobias.borgert@gmail.com
 
 RUN pacman -Syu --noconfirm && \
-    pacman -S --noconfirm base-devel && \
     pacman -S --noconfirm git pacman-contrib vim
 
 RUN useradd --uid 1306 --user-group --groups wheel --create-home --shell /bin/bash ecal

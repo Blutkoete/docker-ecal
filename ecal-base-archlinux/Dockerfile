@@ -1,4 +1,4 @@
-FROM archlinux
+FROM library/archlinux:base-devel
 MAINTAINER tobias.borgert@gmail.com
 
 RUN pacman -Syu --noconfirm && \
