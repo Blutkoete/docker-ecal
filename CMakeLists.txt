@@ -8,8 +8,8 @@ option(DOCKER_ECAL_BUILD_BIONIC        "Build with Ubuntu Bionic Beaver as a bas
 option(DOCKER_ECAL_BUILD_FOCAL         "Build with Ubuntu Focal Fossa as a base"                      ON)
 option(DOCKER_ECAL_BUILD_ARCHLINUX     "Build with ArchLinux as a base"                               ON)
 option(DOCKER_ECAL_BUILD_ARCHLINUX_AUR "Build with Archlinux as a base for AUR package development"   ON)
-option(DOCKER_ECAL_BUILD_V5_6_0        "Build image for eCAL v5.6.0"                                  ON)
-option(DOCKER_ECAL_BUILD_V5_7_1        "Build image for eCAL v5.7.1"                                  ON)
+option(DOCKER_ECAL_BUILD_V5_7_6        "Build image for eCAL v5.7.6"                                  ON)
+option(DOCKER_ECAL_BUILD_V5_8_2        "Build image for eCAL v5.8.2"                                  ON)
 
 set(DOCKER_ECAL_TAG_PREFIX "blutkoete/")
 
@@ -28,18 +28,18 @@ if(DOCKER_ECAL_BUILD_BIONIC)
                       docker build ${DOCKER_ECAL_CACHE} ${DOCKER_ECAL_PULL} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal-base:latest-bionic-${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal-base-bionic)
     add_dependencies(docker-ecal ecal-base-bionic)
 
-    if(DOCKER_ECAL_BUILD_V5_6_0)
-        add_custom_target(ecal-bionic-v5_6_0
-                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.6.0-bionic-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.6.0 --build-arg OS=bionic --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
-        add_dependencies(ecal-bionic-v5_6_0 ecal-base-bionic)
-        add_dependencies(docker-ecal ecal-bionic-v5_6_0)
+    if(DOCKER_ECAL_BUILD_V5_7_6)
+        add_custom_target(ecal-bionic-v5_7_6
+                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.7.6-bionic-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.7.6 --build-arg OS=bionic --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
+        add_dependencies(ecal-bionic-v5_7_6 ecal-base-bionic)
+        add_dependencies(docker-ecal ecal-bionic-v5_7_6)
     endif()
 
-    if(DOCKER_ECAL_BUILD_V5_7_1)
-        add_custom_target(ecal-bionic-v5_7_1
-                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.7.1-bionic-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.7.1 --build-arg OS=bionic --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
-        add_dependencies(ecal-bionic-v5_7_1 ecal-base-bionic)
-        add_dependencies(docker-ecal ecal-bionic-v5_7_1)
+    if(DOCKER_ECAL_BUILD_V5_8_2)
+        add_custom_target(ecal-bionic-v5_8_2
+                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.8.2-bionic-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.8.2 --build-arg OS=bionic --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
+        add_dependencies(ecal-bionic-v5_8_2 ecal-base-bionic)
+        add_dependencies(docker-ecal ecal-bionic-v5_8_2)
     endif()
 endif()
 
@@ -48,18 +48,18 @@ if(DOCKER_ECAL_BUILD_FOCAL)
                       docker build ${DOCKER_ECAL_CACHE} ${DOCKER_ECAL_PULL} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal-base:latest-focal-${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal-base-focal)
     add_dependencies(docker-ecal ecal-base-focal)
 
-    if(DOCKER_ECAL_BUILD_V5_6_0)
-        add_custom_target(ecal-focal-v5_6_0
-                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.6.0-focal-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.6.0 --build-arg OS=focal --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
-        add_dependencies(ecal-focal-v5_6_0 ecal-base-focal)
-        add_dependencies(docker-ecal ecal-focal-v5_6_0)
+    if(DOCKER_ECAL_BUILD_V5_7_6)
+        add_custom_target(ecal-focal-v5_7_6
+                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.7.6-focal-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.7.6 --build-arg OS=focal --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
+        add_dependencies(ecal-focal-v5_7_6 ecal-base-focal)
+        add_dependencies(docker-ecal ecal-focal-v5_7_6)
     endif()
 
-    if(DOCKER_ECAL_BUILD_V5_7_1)
-        add_custom_target(ecal-focal-v5_7_1
-                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.7.1-focal-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.7.1 --build-arg OS=focal --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
-        add_dependencies(ecal-focal-v5_7_1 ecal-base-focal)
-        add_dependencies(docker-ecal ecal-focal-v5_7_1)
+    if(DOCKER_ECAL_BUILD_V5_8_2)
+        add_custom_target(ecal-focal-v5_8_2
+                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.8.2-focal-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.8.2 --build-arg OS=focal --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
+        add_dependencies(ecal-focal-v5_8_2 ecal-base-focal)
+        add_dependencies(docker-ecal ecal-focal-v5_8_2)
     endif()
 endif()
 
@@ -68,18 +68,18 @@ if(DOCKER_ECAL_BUILD_ARCHLINUX)
                       docker build ${DOCKER_ECAL_CACHE} ${DOCKER_ECAL_PULL} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal-base:latest-archlinux-${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal-base-archlinux)
     add_dependencies(docker-ecal ecal-base-archlinux)
 
-    if(DOCKER_ECAL_BUILD_V5_6_0)
-        add_custom_target(ecal-archlinux-v5_6_0
-                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.6.0-archlinux-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.6.0 --build-arg OS=archlinux --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
-        add_dependencies(ecal-archlinux-v5_6_0 ecal-base-archlinux)
-        add_dependencies(docker-ecal ecal-archlinux-v5_6_0)
+    if(DOCKER_ECAL_BUILD_V5_7_6)
+        add_custom_target(ecal-archlinux-v5_7_6
+                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.7.6-archlinux-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.7.6 --build-arg OS=archlinux --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
+        add_dependencies(ecal-archlinux-v5_7_6 ecal-base-archlinux)
+        add_dependencies(docker-ecal ecal-archlinux-v5_7_6)
     endif()
 
-    if(DOCKER_ECAL_BUILD_V5_7_1)
-        add_custom_target(ecal-archlinux-v5_7_1
-                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.7.1-archlinux-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.7.1 --build-arg OS=archlinux --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
-        add_dependencies(ecal-archlinux-v5_7_1 ecal-base-archlinux)
-        add_dependencies(docker-ecal ecal-archlinux-v5_7_1)
+    if(DOCKER_ECAL_BUILD_V5_8_2)
+        add_custom_target(ecal-archlinux-v5_8_2
+                          docker build ${DOCKER_ECAL_CACHE} --tag ${DOCKER_ECAL_TAG_PREFIX}ecal:v5.8.2-archlinux-${CMAKE_SYSTEM_PROCESSOR} --build-arg TAG=v5.8.2 --build-arg OS=archlinux --build-arg ARCH=${CMAKE_SYSTEM_PROCESSOR} ${CMAKE_SOURCE_DIR}/ecal)
+        add_dependencies(ecal-archlinux-v5_8_2 ecal-base-archlinux)
+        add_dependencies(docker-ecal ecal-archlinux-v5_8_2)
     endif()
 endif()
 

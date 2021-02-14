@@ -11,7 +11,7 @@ The _ecal_ Dockerfile uses the following ARGs (--build-arg):
 
 - *OS*: Used as the second part of the version to pull the _ecal-base_ image, e.g. _bionic_.
 - *ARCH*: Used as the third part of the version to pull the _ecal-base_ image, e.g. _armv7l_.
-- *TAG*: The eCAL repository tag to check out, e.g. _v5.7.1_.
+- *TAG*: The eCAL repository tag to check out, e.g. _v5.8._.
 
 The _ecal_base-archlinux-aur_ container pulls in the [AUR package](https://aur.archlinux.org/packages/ecal/) and is meant as a clean build environment for pushing new AUR package versions.
 
