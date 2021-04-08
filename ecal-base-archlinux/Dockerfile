@@ -1,8 +1,7 @@
-FROM library/archlinux:base-devel
+FROM archlinux:base-devel
 MAINTAINER tobias.borgert@gmail.com
 
 RUN pacman -Syu --noconfirm && \
-    pacman -S --noconfirm base-devel && \
     pacman -S --noconfirm git pacman-contrib vim && \
     pacman -S --noconfirm cmake curl doxygen git graphviz hdf5 protobuf qt5-base
 
